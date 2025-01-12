@@ -1,0 +1,203 @@
+/* Variables pour la cohérence des couleurs et la maintenance */
+:root {
+    --primary-color: #2B3A67;          /* Bleu profond pour la confiance */
+    --secondary-color: #496A81;        /* Bleu-gris pour le professionnalisme */
+    --accent-color: #66999B;          /* Bleu-vert pour l'accent */
+    --background-color: #F5F7FA;      /* Gris très clair pour le fond */
+    --text-color: #2C3E50;           /* Bleu foncé pour le texte */
+    --white: #FFFFFF;
+    --shadow: 0 4px 6px rgba(43, 58, 103, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Conteneur principal */
+.project-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/* En-tête du projet */
+.project-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+}
+
+.project-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Sections communes */
+section {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    font-size: 1.75rem;
+}
+
+/* Section aperçu */
+.project-overview {
+    line-height: 1.8;
+}
+
+.project-overview strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.project-overview ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.project-overview li {
+    margin-bottom: 0.5rem;
+}
+
+/* Section détails */
+.project-details ul {
+    list-style: none;
+}
+
+.project-details li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.project-details li:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow);
+}
+
+/* Grille de fonctionnalités */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: var(--white);
+    border: 1px solid rgba(43, 58, 103, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* Pied de page */
+.project-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    border-radius: 10px;
+    margin-top: 3rem;
+}
+
+/* Media Queries pour la responsivité */
+@media screen and (max-width: 768px) {
+    .project-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .project-header {
+        padding: 2rem 1rem;
+    }
+
+    .project-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations subtiles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-container {
+    animation: fadeIn 0.8s ease-out;
+}
