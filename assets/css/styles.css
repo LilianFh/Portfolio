@@ -449,15 +449,12 @@ footer {
     padding: 2rem;
     background: var(--white);
     border-radius: 12px;
-    box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .about-content:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
 }
 
 .about-content::before {
