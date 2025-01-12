@@ -1,0 +1,230 @@
+/* Variables pour le thème océanique */
+:root {
+    --primary-color: #006994;         /* Bleu océan profond */
+    --secondary-color: #40E0D0;       /* Turquoise */
+    --accent-color: #00CED1;          /* Bleu-vert marin */
+    --background-color: #E0FFFF;      /* Bleu très clair */
+    --text-color: #1A4A5E;           /* Bleu foncé pour le texte */
+    --wave-color: rgba(0, 105, 148, 0.1);
+    --white: #FFFFFF;
+    --shadow: 0 4px 12px rgba(0, 105, 148, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background: linear-gradient(
+            to bottom,
+            var(--background-color),
+            #FFFFFF
+    );
+}
+
+/* Animation des vagues */
+@keyframes wave {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+/* Conteneur principal */
+.project-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* En-tête avec effet de vagues */
+.project-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 40px;
+    background: repeating-linear-gradient(
+            45deg,
+            var(--wave-color) 0%,
+            var(--wave-color) 10%,
+            transparent 10%,
+            transparent 50%
+    );
+    animation: wave 15s linear infinite;
+}
+
+.project-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.project-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Sections communes */
+section {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(64, 224, 208, 0.2);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    position: relative;
+}
+
+/* Grille de fonctionnalités */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, var(--white), rgba(224, 255, 255, 0.5));
+    border-radius: 15px;
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(64, 224, 208, 0.3);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+/* Liste des défis */
+.project-challenges ul {
+    list-style: none;
+}
+
+.project-challenges li {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(224, 255, 255, 0.5);
+    border-radius: 10px;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.project-challenges li::before {
+    content: '🌊';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Boutons */
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 105, 148, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 105, 148, 0.4);
+}
+
+/* Pied de page */
+.project-footer {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border-radius: 15px;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .project-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .project-header {
+        padding: 3rem 1rem;
+    }
+
+    .project-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}
