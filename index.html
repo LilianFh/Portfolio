@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio - Étudiant en BUT Informatique</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
-
+    <link rel="stylesheet" href="assets/css/styles.css"> <!-- Remplacez par le chemin de votre fichier CSS -->
 </head>
 <body>
 <nav class="navbar">
@@ -17,6 +16,7 @@
             <a href="#education">Formation</a>
             <a href="#skills">Compétences</a>
             <a href="#projects">Projets</a>
+            <a href="apprentissagesCritiques.html">Apprentissages</a>
         </div>
     </div>
 </nav>
@@ -26,9 +26,13 @@
         <h1>Lilian MARTIN</h1>
         <p>Étudiant en BUT Informatique</p>
         <div class="hero-buttons">
-            <a href="#projects" class="btn btn-outline">Voir mes projets</a>
+            <a href="#projects" class="btn btn-outline">
+                <i class="fas fa-rocket"></i>
+                Voir mes projets
+            </a>
             <a href="assets/files/cv-lilian-martin.pdf" target="_blank" class="btn btn-download">
-                <i class="fas fa-file-pdf"></i> Télécharger mon CV
+                <i class="fas fa-file-pdf"></i>
+                Télécharger mon CV
             </a>
         </div>
         <div class="social-links">
@@ -44,28 +48,26 @@
     <p class="section-subtitle">En savoir plus sur moi</p>
     <div class="about-content">
         <p>
-            <strong>Bonjour, je suis Lilian MARTIN</strong>, étudiant en BUT Informatique à l’IUT de Montpellier. Passionné par les technologies, le développement logiciel et la cybersécurité, mon objectif est de devenir ingénieur en cybersécurité, capable de concevoir des solutions innovantes, robustes et adaptées aux usages réels.
+            <strong>Bonjour, je suis Lilian MARTIN</strong>, étudiant en BUT Informatique à l'IUT de Montpellier. Passionné par les technologies, le développement logiciel et la cybersécurité, mon objectif est de devenir ingénieur en cybersécurité, capable de concevoir des solutions innovantes, robustes et adaptées aux usages réels.
         </p>
 
         <p>
-            Je suis actuellement à la recherche d’une <strong>alternance</strong> afin d’approfondir mes compétences sur le terrain, évoluer dans un environnement stimulant, et contribuer concrètement à des projets à fort impact.
+            Je suis actuellement à la recherche d'une <strong>alternance</strong> afin d'approfondir mes compétences sur le terrain, évoluer dans un environnement stimulant, et contribuer concrètement à des projets à fort impact.
         </p>
 
         <p>
-            Curieux, autonome et orienté vers la pratique, j’aime comprendre comment les choses fonctionnent et résoudre des problèmes concrets. Cette approche m’a notamment permis de <strong>remporter le défi principal de la Nuit de l’Info</strong>, un challenge intense où j’ai su mobiliser mes compétences techniques et mon sang-froid en situation de collaboration sous pression.
+            Curieux, autonome et orienté vers la pratique, j'aime comprendre comment les choses fonctionnent et résoudre des problèmes concrets. Cette approche m'a notamment permis de <strong>remporter le défi principal de la Nuit de l'Info</strong>, un challenge intense où j'ai su mobiliser mes compétences techniques et mon sang-froid en situation de collaboration sous pression.
         </p>
 
         <p>
-            En parallèle de l’informatique, je pratique le <strong>kickboxing en compétition</strong>. Ce sport exigeant m’enseigne la rigueur, la résilience et le dépassement de soi. Il reflète également mon goût pour les défis, l’action et la maîtrise de soi dans l’effort.
+            En parallèle de l'informatique, je pratique le <strong>kickboxing en compétition</strong>. Ce sport exigeant m'enseigne la rigueur, la résilience et le dépassement de soi. Il reflète également mon goût pour les défis, l'action et la maîtrise de soi dans l'effort.
         </p>
 
         <p>
-            Indépendant mais à l’écoute, je m’épanouis dans les environnements dynamiques où je peux apprendre, expérimenter et progresser à ma manière. Résolument tourné vers le concret, j’aime travailler en équipe pour atteindre des résultats tangibles avec efficacité et engagement.
+            Indépendant mais à l'écoute, je m'épanouis dans les environnements dynamiques où je peux apprendre, expérimenter et progresser à ma manière. Résolument tourné vers le concret, j'aime travailler en équipe pour atteindre des résultats tangibles avec efficacité et engagement.
         </p>
     </div>
 </section>
-
-
 
 <section class="section" id="education">
     <h2 class="section-title">Formation</h2>
@@ -84,7 +86,7 @@
     </div>
 </section>
 
-    <section class="section" id="skills">
+<section class="section" id="skills">
     <h2 class="section-title">Mes Compétences</h2>
     <p class="section-subtitle">Technologies et langages maîtrisés durant ma formation</p>
     <div class="skills">
@@ -93,7 +95,7 @@
                 <i class="fas fa-code"></i>
             </div>
             <h3>Langages de Programmation</h3>
-            <p>Java, Python, C, SQL, PHP</p>
+            <p>Java, Python, C, SQL</p>
         </div>
         <div class="skill-card">
             <div class="skill-icon">
@@ -107,7 +109,14 @@
                 <i class="fas fa-database"></i>
             </div>
             <h3>Bases de Données</h3>
-            <p>iSQL, phpMyAdmin</p>
+            <p>MySQL, phpMyAdmin</p>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Cybersécurité</h3>
+            <p>Tests d'intrusion, Analyse de vulnérabilités, Sécurité réseau</p>
         </div>
         <div class="skill-card">
             <div class="skill-icon">
@@ -120,10 +129,13 @@
 </section>
 
 <section class="section" id="projects">
-    <h2 class="section-title">Projets Académiques</h2>
-    <p class="section-subtitle">Découvrez mes réalisations pendant mon BUT Informatique</p>
+    <h2 class="section-title">Projets & Expériences</h2>
+    <p class="section-subtitle">Découvrez mes réalisations académiques et professionnelles</p>
     <div class="projects">
-        <div class="project-card">
+        <div class="project-card ecommerce">
+            <div class="project-image">
+                <img src="assets/img/logoKawaiiToys.png" alt="Capture d'écran du site KawaiiToys" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-shopping-cart\'></i>';">
+            </div>
             <div class="project-content">
                 <div class="project-tags">
                     <span class="project-tag">PHP</span>
@@ -131,41 +143,81 @@
                     <span class="project-tag">HTML/CSS</span>
                 </div>
                 <h3 class="project-title">KawaiiToys</h3>
-                <p class="project-description">Développement d'un site e-commerce en PHP avec une base de données SQL</p>
+                <p class="project-description">Développement d'un site e-commerce complet en PHP avec gestion des utilisateurs, panier d'achat, système de paiement et interface d'administration. Base de données SQL optimisée pour les performances.</p>
                 <div class="project-links">
-                    <a href="projects/project1.html"><i class="fas fa-file-alt"></i> Détails</a>
+                    <a href="projects/project1.html">
+                        <i class="fas fa-eye"></i>
+                        Voir les détails
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="project-card">
+
+        <div class="project-card security">
+            <div class="project-image">
+                <img src="assets/img/logoVELEC.png" alt="Interface de l'application VELEC" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-vote-yea\'></i>';">
+            </div>
             <div class="project-content">
                 <div class="project-tags">
                     <span class="project-tag">JAVA</span>
                     <span class="project-tag">SQL</span>
+                    <span class="project-tag">Cryptographie</span>
                 </div>
                 <h3 class="project-title">VELEC</h3>
-                <p class="project-description">Velec est une application de vote électronique sécurisée, conçue en Java, permettant à une entreprise de mener des référendums en ligne de manière confidentielle et fiable via cryptage des votes.</p>
+                <p class="project-description">Application de vote électronique sécurisée développée en Java. Implémentation de protocoles de cryptage avancés pour garantir la confidentialité et l'intégrité des votes lors de référendums d'entreprise.</p>
                 <div class="project-links">
-                    <a href="projects/project2.html"><i class="fas fa-file-alt"></i> Détails</a>
+                    <a href="projects/project2.html">
+                        <i class="fas fa-eye"></i>
+                        Voir les détails
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="project-card">
+
+        <div class="project-card web">
+            <div class="project-image">
+                <img src="assets/img/logoNuitDeLInfo.png" alt="Site Aquapulse - Nuit de l'Info" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-water\'></i>';">
+            </div>
             <div class="project-content">
                 <div class="project-tags">
                     <span class="project-tag">HTML/CSS</span>
-                    <span class="project-tag">JAVA SCRIPT</span>
-                    <span class="project-tag">API AUDIO</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">Gagnant</span>
                 </div>
                 <h3 class="project-title">Nuit de l'Info - Aquapulse</h3>
-                <p class="project-description">Aquapulse est une plateforme interactive qui connecte le corps humain et l’océan à travers quatre axes symboliques, en utilisant des contenus éducatifs, un podcast intégré, et un mini-jeu ludique pour sensibiliser à la santé et à la préservation des écosystèmes marins.</p>
+                <p class="project-description">🏆 Projet gagnant de la Nuit de l'Info ! Plateforme interactive éducative connectant le corps humain et l'océan. Intégration d'API audio, podcast intégré, mini-jeux ludiques pour sensibiliser à la santé marine.</p>
                 <div class="project-links">
-                    <a href="projects/project3.html"><i class="fas fa-file-alt"></i> Détails</a>
+                    <a href="projects/project3.html">
+                        <i class="fas fa-eye"></i>
+                        Voir les détails
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card pentest">
+            <div class="project-image">
+                <img src="assets/img/logoNetia.png" alt="Outils de test de pénétration" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-bug\'></i>';">
+            </div>
+            <div class="project-content">
+                <div class="project-tags">
+                    <span class="project-tag">Pentest</span>
+                    <span class="project-tag">Cybersécurité</span>
+                    <span class="project-tag">Stage Pro</span>
+                </div>
+                <h3 class="project-title">Stage Pentest - Netia</h3>
+                <p class="project-description">Stage professionnel chez Netia axé sur la réalisation de tests d'intrusion. Analyse de vulnérabilités, exploitation de failles de sécurité, rédaction de rapports détaillés et recommandations de sécurisation.</p>
+                <div class="project-links">
+                    <a href="projects/project4.html">
+                        <i class="fas fa-eye"></i>
+                        Voir les détails
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <footer>
     <div class="footer-content">
@@ -175,6 +227,7 @@
             <a href="#education">Formation</a>
             <a href="#skills">Compétences</a>
             <a href="#projects">Projets</a>
+            <a href="apprentissagesCritiques.html">Apprentissages</a>
         </div>
         <div class="social-links">
             <a href="https://github.com/LilianFh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
@@ -183,5 +236,3 @@
         </div>
     </div>
 </footer>
-</body>
-</html>
