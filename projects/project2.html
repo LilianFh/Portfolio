@@ -3,71 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet VELEC</title>
+    <title>VELEC - Vote Électronique Sécurisé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/project2.css"> <!-- Remplacez par le chemin de votre fichier CSS -->
 </head>
 <body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">VELEC</div>
+        <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+    </div>
+</nav>
 
-<!-- Conteneur principal du projet -->
-<div class="project-container">
-    <!-- En-tête -->
-    <header class="project-header">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
         <h1>VELEC</h1>
-        <p class="project-subtitle">Une solution de vote sécurisé.</p>
-    </header>
+        <p class="hero-subtitle">Solution de vote électronique sécurisé et transparent</p>
+        <div class="tech-badges">
+            <span class="badge">Java</span>
+            <span class="badge">SQL</span>
+            <span class="badge">Cryptographie</span>
+            <span class="badge">Sécurité</span>
+        </div>
+    </div>
+</section>
 
-    <!-- Aperçu du projet -->
-    <section class="project-overview">
-        <h2>Description du projet</h2>
-        <strong>VELEC</strong> est une plateforme de gestion des votes électroniques destinée à simplifier et sécuriser les processus électoraux.
-        Elle permet l'organisation de votes en ligne de manière transparente, rapide, et avec une grande fiabilité.
-        <br><br>
-        <strong>Contexte</strong> : Les processus électoraux traditionnels sont souvent coûteux et sujets à des délais importants.
-        Avec la digitalisation croissante, une plateforme comme VELEC répond à un besoin de modernisation des votes,
-        tout en garantissant leur intégrité et leur confidentialité.
-        <br><br>
-        <strong>Objectifs</strong> :
-        <ul>
-            <li>Fournir un système sécurisé et accessible pour des votes électroniques fiables.</li>
-            <li>Assurer la confidentialité des choix des électeurs et l'intégrité des résultats.</li>
-            <li>Proposer une interface utilisateur intuitive pour faciliter la participation électorale.</li>
-        </ul>
-    </section>
+<!-- Project Overview -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Vue d'ensemble du projet</h2>
+        <div class="overview-grid">
+            <div class="overview-content fade-in">
+                <p><span class="highlight">VELEC</span> est une plateforme innovante de gestion des votes électroniques conçue pour révolutionner les processus électoraux traditionnels. Elle combine sécurité de pointe, transparence et facilité d'utilisation pour créer une solution de vote moderne et fiable.</p>
 
-    <!-- Détails du projet -->
-    <section class="project-details">
-        <h2>Détails du projet</h2>
-        <ul>
-            <li><strong>Technologies utilisées :</strong> Java, SQL</li>
-            <li><strong>Durée de développement :</strong> 4 mois</li>
-            <li><strong>Objectif principal :</strong> Créer une application de vote sécurisé, avec un cryptage des votes</li>
-        </ul>
-    </section>
+                <p style="margin-top: 1.5rem;"><span class="highlight">Contexte :</span> Face aux défis des processus électoraux traditionnels (coûts élevés, délais importants, logistique complexe), VELEC apporte une réponse technologique moderne tout en garantissant l'intégrité démocratique.</p>
 
-    <!-- Fonctionnalités principales -->
-    <section class="project-features">
-        <h2>Fonctionnalités principales</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Communication client/serveur</h3>
-                <p>Permettre à l'utilisateur de voter une fois pour un référendum.</p>
+                <ul class="objectives-list">
+                    <li>Système de vote sécurisé avec cryptage avancé</li>
+                    <li>Interface intuitive pour tous les utilisateurs</li>
+                    <li>Transparence totale du processus électoral</li>
+                    <li>Réduction des coûts et des délais</li>
+                </ul>
             </div>
-            <div class="feature-card">
-                <h3>Cryptage des votes</h3>
-                <p>Assurer la confidentialité de chacun des votes.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Authentification des clients</h3>
-                <p>Assurer qu'une personne ne vote qu'une fois et que seul les clients voulu puissent voter.</p>
+            <div class="overview-visual fade-in">
+                <div class="project-icon">🗳️</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Pied de page -->
-    <footer class="project-footer">
-        © 2025 VELEC - Tous droits réservés.
-    </footer>
-</div>
+<!-- Stats -->
+<section class="section">
+    <div class="container">
+        <div class="stats fade-in">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <div class="stat-label">Mois de développement</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Votes sécurisés</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">256-bit</span>
+                    <div class="stat-label">Cryptage AES</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1x</span>
+                    <div class="stat-label">Vote par utilisateur</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Features -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Fonctionnalités principales</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔗</div>
+                <h3>Communication Client/Serveur</h3>
+                <p>Architecture robuste permettant une communication sécurisée entre les clients et le serveur, avec gestion des sessions et validation des requêtes en temps réel.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔐</div>
+                <h3>Cryptage Avancé des Votes</h3>
+                <p>Implémentation d'un système de cryptage de niveau militaire pour garantir la confidentialité absolue de chaque vote et prévenir toute tentative de manipulation.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">👤</div>
+                <h3>Authentification Sécurisée</h3>
+                <p>Système d'authentification multi-facteurs empêchant le vote multiple et garantissant que seuls les électeurs autorisés peuvent participer au processus démocratique.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <div class="cta fade-in">
+            <div class="cta-content">
+                <h2>L'avenir du vote démocratique</h2>
+                <p>VELEC représente une avancée majeure dans la digitalisation des processus démocratiques, alliant innovation technologique et respect des principes démocratiques fondamentaux.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 VELEC - Solution de vote électronique sécurisé</p>
+    </div>
+</footer>
+
+<script>
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.addEventListener('DOMContentLoaded', () => {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => observer.observe(el));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
+</script>
 </body>
 </html>
