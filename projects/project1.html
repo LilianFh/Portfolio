@@ -4,82 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KawaiiToys - Projet E-commerce | Lilian MARTIN</title>
-    <link rel="stylesheet" href="../assets/css/project1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/project1.css"> <!-- Remplacez par le chemin de votre fichier CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 </head>
 <body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-content">
+        <a href="../index.html" class="nav-logo">Portfolio</a>
+        <div class="nav-links">
+            <a href="../index.html#about">À propos</a>
+            <a href="../index.html#education">Formation</a>
+            <a href="../index.html#skills">Compétences</a>
+            <a href="../index.html#projects">Projets</a>
+            <a href="../apprentissagesCritiques.html">Apprentissages</a>
+        </div>
+    </div>
+</nav>
+
 <div class="project-container">
     <header class="project-header">
         <h1>KawaiiToys</h1>
         <p class="project-subtitle">Site E-commerce de Figurines d'Anime Japonais</p>
     </header>
 
-    <section class="project-overview">
+    <section class="section project-overview">
         <h2>Aperçu du Projet</h2>
         <div class="overview-content">
-            <p>KawaiiToys est un projet de site e-commerce développé dans le cadre de ma formation en BUT Informatique. L'objectif était de créer une plateforme de vente en ligne spécialisée dans les figurines de culture pop japonaise.</p>
-
-            <div class="project-details">
-                <h3>Détails Techniques</h3>
-                <ul>
-                    <li><strong>Technologies utilisées</strong> PHP, SQL, HTML, CSS</li>
-                    <li><strong>Base de données</strong> phpMyAdmin</li>
-                    <li><strong>Période de développement</strong> Semestre 3, Année 2024</li>
-                </ul>
+            <div class="overview-text">
+                <p>KawaiiToys est un projet de site e-commerce développé dans le cadre de ma formation en BUT Informatique. L'objectif était de créer une plateforme de vente en ligne spécialisée dans les figurines de culture pop japonaise, offrant une expérience utilisateur moderne et intuitive.</p>
+            </div>
+            <div class="project-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Technologies</div>
+                    <div class="stat-value">PHP, SQL, HTML, CSS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Base de données</div>
+                    <div class="stat-value">phpMyAdmin</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Période</div>
+                    <div class="stat-value">Semestre 3, Année 2024</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="project-features">
+    <section class="section project-features">
         <h2>Fonctionnalités Principales</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <h3>Catalogue de Produits</h3>
-                <p>Interface utilisateur permettant de parcourir et filtrer une large sélection de figurines par catégorie, série, et prix.</p>
+                <p>Interface utilisateur permettant de parcourir et filtrer une large sélection de figurines par catégorie, série, et prix avec un système de recherche avancé.</p>
             </div>
             <div class="feature-card">
                 <h3>Système de Panier</h3>
-                <p>Gestion dynamique du panier avec calcul automatique des totaux et options de modification.</p>
+                <p>Gestion dynamique du panier avec calcul automatique des totaux, options de modification et sauvegarde des préférences utilisateur.</p>
             </div>
             <div class="feature-card">
                 <h3>Authentification Utilisateur</h3>
-                <p>Système de connexion et d'inscription sécurisé avec gestion des profils utilisateurs.</p>
+                <p>Système de connexion et d'inscription sécurisé avec gestion des profils utilisateurs et historique des commandes.</p>
             </div>
         </div>
     </section>
 
-    <section class="project-screenshots">
+    <section class="section project-screenshots">
         <h2>Captures d'Écran</h2>
         <div class="screenshots-gallery">
-            <img src="../assets/img/acceuil.png" alt="Page d'accueil KawaiiToys">
-            <img src="../assets/img/boutique.png" alt="Catalogue de Figurines">
-            <img src="../assets/img/panier.png" alt="Détails du Panier">
+            <div class="screenshot-item">
+                <img src="../assets/img/acceuil.png" alt="Page d'accueil KawaiiToys">
+                <div class="screenshot-overlay">
+                    <div class="screenshot-title">Page d'Accueil</div>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="../assets/img/boutique.png" alt="Catalogue de Figurines">
+                <div class="screenshot-overlay">
+                    <div class="screenshot-title">Catalogue de Figurines</div>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="../assets/img/panier.png" alt="Détails du Panier">
+                <div class="screenshot-overlay">
+                    <div class="screenshot-title">Gestion du Panier</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="project-challenges">
+    <section class="section project-challenges">
         <h2>Défis et Apprentissages</h2>
         <div class="challenges-content">
-            <p>Au cours du développement de KawaiiToys, j'ai relevé plusieurs défis techniques :</p>
-            <ul>
-                <li>Conception d'une base de données relationnelle efficace</li>
-                <li>Mise en place de requêtes SQL optimisées</li>
-                <li>Implémentation de mécanismes de sécurité pour protéger les données utilisateurs</li>
-                <li>Création d'une expérience utilisateur intuitive et responsive</li>
+            <p style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.1rem;">Au cours du développement de KawaiiToys, j'ai relevé plusieurs défis techniques qui ont enrichi mes compétences :</p>
+            <ul class="challenges-list">
+                <li>Conception d'une base de données relationnelle efficace pour optimiser les performances</li>
+                <li>Mise en place de requêtes SQL optimisées pour gérer un large catalogue de produits</li>
+                <li>Implémentation de mécanismes de sécurité robustes pour protéger les données utilisateurs</li>
+                <li>Création d'une expérience utilisateur intuitive et responsive sur tous les appareils</li>
             </ul>
         </div>
     </section>
 
-    <section class="project-links">
-        <h2>Site</h2>
+    <section class="section project-links">
+        <h2>Découvrir le Site</h2>
         <div class="links-container">
-            <a href="https://webinfo.iutmontp.univ-montp2.fr/~duongr/kawaiiToys/site/web/controleurFrontal.php" class="btn btn-primary">Lien du site</a>
-
+            <a href="https://webinfo.iutmontp.univ-montp2.fr/~duongr/kawaiiToys/site/web/controleurFrontal.php" class="btn btn-primary">Visiter KawaiiToys</a>
         </div>
     </section>
 </div>
 
+<!-- Footer -->
 <footer class="project-footer">
-    <p>© 2025 Lilian MARTIN - Projet KawaiiToys</p>
+    <div class="footer-content">
+        <p>© 2025 Lilian MARTIN - Étudiant en BUT Informatique</p>
+        <div class="footer-links">
+            <a href="../index.html#about">À propos</a>
+            <a href="../index.html#education">Formation</a>
+            <a href="../index.html#skills">Compétences</a>
+            <a href="../index.html#projects">Projets</a>
+            <a href="../apprentissagesCritiques.html">Apprentissages</a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/LilianFh" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/lilian-martin-7081302ab" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://gitlabinfo.iutmontp.univ-montp2.fr/martinl" target="_blank" rel="noopener noreferrer" title="GitLab">
+                <i class="fab fa-gitlab"></i>
+            </a>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
