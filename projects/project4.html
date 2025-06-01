@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentest RAO - Test d'Intrusion Radio Assist Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .back-btn {
+            color: #666;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #f3f4f6;
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .tech-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        /* Overview Grid */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .objectives-list {
+            margin-top: 2rem;
+            list-style: none;
+        }
+
+        .objectives-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .objectives-list li::before {
+            content: '🔒';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
+        .overview-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-icon {
+            font-size: 8rem;
+            opacity: 0.8;
+        }
+
+        /* Stats */
+        .stats {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* Vulnerability Cards */
+        .vulnerability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vuln-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #ef4444;
+            transition: all 0.3s ease;
+        }
+
+        .vuln-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .vuln-card.critical {
+            border-left-color: #dc2626;
+        }
+
+        .vuln-card.high {
+            border-left-color: #ea580c;
+        }
+
+        .vuln-card.medium {
+            border-left-color: #d97706;
+        }
+
+        .severity {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .severity.critical {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .severity.high {
+            background: #fed7aa;
+            color: #ea580c;
+        }
+
+        .severity.medium {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tool-card:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #1e293b, #475569);
+            color: white;
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #94a3b8;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vulnerability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">PENTEST RAO</div>
+        <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Pentest RAO</h1>
+        <p class="hero-subtitle">Test d'intrusion complet sur Radio Assist Online - NETIA</p>
+        <div class="tech-badges">
+            <span class="badge">Kali Linux</span>
+            <span class="badge">Burp Suite</span>
+            <span class="badge">SQLMap</span>
+            <span class="badge">Nmap</span>
+            <span class="badge">Cybersécurité</span>
+        </div>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Vue d'ensemble du projet</h2>
+        <div class="overview-grid">
+            <div class="overview-content fade-in">
+                <p><span class="highlight">NETIA</span>, spécialisée dans les solutions logicielles d'automation radio, m'a confié la réalisation d'un pentest complet sur Radio Assist Online (RAO), leur plateforme web de gestion de contenus audio.</p>
+
+                <p style="margin-top: 1.5rem;"><span class="highlight">Contexte :</span> Cette mission critique de 11 semaines visait à évaluer la robustesse du système face aux menaces potentielles et à identifier les vulnérabilités de sécurité dans un environnement de production.</p>
+
+                <ul class="objectives-list">
+                    <li>Audit de sécurité approfondi avec méthodologie OWASP</li>
+                    <li>Identification et exploitation de vulnérabilités critiques</li>
+                    <li>Tests d'intrusion sur APIs et bases de données</li>
+                    <li>Rapport détaillé avec recommandations de remédiation</li>
+                </ul>
+            </div>
+            <div class="overview-visual fade-in">
+                <div class="project-icon">🔒</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="section">
+    <div class="container">
+        <div class="stats fade-in">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">11</span>
+                    <div class="stat-label">Semaines de stage</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <div class="stat-label">Vulnérabilités détectées</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <div class="stat-label">Outils utilisés</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools Used -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Arsenal technique utilisé</h2>
+        <div class="tools-grid">
+            <div class="tool-card fade-in">🐉 Kali Linux</div>
+            <div class="tool-card fade-in">🔍 Nmap</div>
+            <div class="tool-card fade-in">💉 SQLMap</div>
+            <div class="tool-card fade-in">🌐 Burp Suite</div>
+            <div class="tool-card fade-in">⚡ Nikto</div>
+            <div class="tool-card fade-in">🕷️ Wapiti</div>
+            <div class="tool-card fade-in">🔐 Hydra</div>
+            <div class="tool-card fade-in">🎯 Metasploit</div>
+            <div class="tool-card fade-in">🔑 Hashcat</div>
+            <div class="tool-card fade-in">📡 Responder</div>
+            <div class="tool-card fade-in">🔒 testssl.sh</div>
+            <div class="tool-card fade-in">📝 CherryTree</div>
+        </div>
+    </div>
+</section>
+
+<!-- Methodology Phases -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Méthodologie de pentest appliquée</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🕵️</div>
+                <h3>Approche Black Box</h3>
+                <p>Tests réalisés sans connaissance préalable de l'architecture interne, simulant une attaque externe réaliste pour évaluer la posture de sécurité publique de RAO.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔍</div>
+                <h3>Approche Grey Box</h3>
+                <p>Combinaison avec des informations partielles sur l'infrastructure pour approfondir l'analyse et identifier des vulnérabilités internes plus subtiles.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📡</div>
+                <h3>Reconnaissance Passive</h3>
+                <p>Collecte d'informations via OSINT, analyse DNS, identification des technologies utilisées et cartographie des services exposés sans interaction directe.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎯</div>
+                <h3>Reconnaissance Active</h3>
+                <p>Scan de ports avec Nmap, énumération des services, identification des points d'entrée potentiels dans l'infrastructure.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔎</div>
+                <h3>Analyse des Vulnérabilités</h3>
+                <p>Identification systématique des failles de sécurité via scanners automatisés et tests manuels, classification selon CVSS et priorisation des risques.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚡</div>
+                <h3>Exploitation Contrôlée</h3>
+                <p>Tests d'exploitation des vulnérabilités identifiées dans un environnement contrôlé pour démontrer l'impact réel et valider les risques détectés.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Methodology -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Méthodologie et compétences développées</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎯</div>
+                <h3>Méthodologie OWASP</h3>
+                <p>Application rigoureuse des standards OWASP, PTES et MITRE ATT&CK pour une approche structurée et complète du test d'intrusion.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💻</div>
+                <h3>Exploitation Technique</h3>
+                <p>Maîtrise avancée des outils de pentest, exploitation manuelle de vulnérabilités et analyse approfondie des systèmes complexes.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📊</div>
+                <h3>Analyse & Reporting</h3>
+                <p>Rédaction de rapports techniques détaillés, classification des risques et présentation de recommandations stratégiques.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <div class="cta fade-in">
+            <div class="cta-content">
+                <h2>Expertise en cybersécurité</h2>
+                <p>Ce stage chez NETIA m'a permis d'acquérir une expertise approfondie en test d'intrusion et en audit de sécurité, combinant compétences techniques avancées et vision stratégique de la cybersécurité moderne.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Lilian MARTIN - Étudiant en BUT Informatique</p>
+        <div class="footer-links">
+            <a href="../index.html#about">À propos</a>
+            <a href="../index.html#education">Formation</a>
+            <a href="../index.html#skills">Compétences</a>
+            <a href="../index.html#projects">Projets</a>
+            <a href="../apprentissagesCritiques.html">Apprentissages</a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/LilianFh" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/lilian-martin-7081302ab" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://gitlabinfo.iutmontp.univ-montp2.fr/martinl" target="_blank" rel="noopener noreferrer"><i class="fab fa-gitlab"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.addEventListener('DOMContentLoaded', () => {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => observer.observe(el));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
+</script>
+</body>
+</html>
