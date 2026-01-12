@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Authentifiée SSO - Authentik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/project6.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-shield-alt"></i> Portfolio
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#about">À propos</a>
+                <a href="../index.html#education">Formation</a>
+                <a href="../index.html#skills">Compétences</a>
+                <a href="../index.html#projects">Projets</a>
+                <a href="../apprentissagesCritiques.html">Apprentissages</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="network-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fas fa-lock"></i> Infrastructure Sécurisée
+            </div>
+            <h1 class="fade-in">Authentification Centralisée & Services Déployables</h1>
+            <p class="hero-subtitle fade-in">
+                Mise en place d'une infrastructure complète intégrant Nextcloud, Mattermost et Portainer, unifiée par Authentik via LDAP.
+            </p>
+            <div class="tech-grid" style="justify-content: center; max-width: 800px; margin: 0 auto;">
+                <!-- Tech badges in hero -->
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../index.html#projects" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-light); text-decoration: none; margin-top: 2rem; font-weight: 500;">
+            <i class="fas fa-arrow-left"></i> Retour aux projets
+        </a>
+
+        <!-- Overview -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Vue d'ensemble</h2>
+            <div style="background: rgba(30, 41, 59, 0.4); padding: 2rem; border-radius: 12px; border: 1px solid var(--border);">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Ce projet consistait à concevoir et déployer une <strong>infrastructure applicative conteneurisée</strong> sécurisée. L'objectif principal était de centraliser la gestion des identités pour simplifier l'accès à plusieurs services critiques (stockage, communication, gestion docker).
+                </p>
+                <p style="color: var(--text-secondary);">
+                    En utilisant <strong>Authentik</strong> comme fournisseur d'identité (IdP) et un annuaire <strong>LDAP</strong>, j'ai mis en place un système de Single Sign-On (SSO) permettant aux utilisateurs d'accéder à tous les services avec un seul compte, tout en garantissant une sécurité maximale via HTTPS et Reverse Proxy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Architecture Diagram -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-network-wired"></i> Architecture du Flux</h2>
+            <div class="architecture-container fade-in">
+                <div class="arch-flow">
+                    <!-- User -->
+                    <div class="arch-node">
+                        <i class="fas fa-user" style="color: var(--text-primary);"></i>
+                        <div class="label">Utilisateur</div>
+                        <div class="sub">Navigateur Web</div>
+                    </div>
+                    
+                    <div class="arch-arrow"></div>
+
+                    <!-- Reverse Proxy -->
+                    <div class="arch-node">
+                        <i class="fas fa-server" style="color: var(--accent);"></i>
+                        <div class="label">Reverse Proxy</div>
+                        <div class="sub">SSL / Routing</div>
+                    </div>
+
+                    <div class="arch-arrow"></div>
+
+                    <!-- Authentik (Main) -->
+                    <div class="arch-node main">
+                        <i class="fas fa-fingerprint" style="color: var(--primary-light);"></i>
+                        <div class="label">Authentik</div>
+                        <div class="sub">SSO & Policy</div>
+                    </div>
+
+                    <div class="arch-arrow"></div>
+
+                    <!-- LDAP -->
+                    <div class="arch-node">
+                        <i class="fas fa-database" style="color: var(--success);"></i>
+                        <div class="label">OpenLDAP</div>
+                        <div class="sub">Annuaire Utilisateurs</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center; font-size: 1.5rem; color: var(--text-muted);">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+
+                <!-- Services Grid -->
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <div class="arch-node" style="border-color: #0082c9;">
+                        <i class="fab fa-docker" style="color: #0082c9;"></i>
+                        <div class="label">Nextcloud</div>
+                    </div>
+                    <div class="arch-node" style="border-color: #000000;">
+                        <i class="fas fa-comments" style="color: #ffffff;"></i>
+                        <div class="label">Mattermost</div>
+                    </div>
+                    <div class="arch-node" style="border-color: #37bcf7;">
+                        <i class="fas fa-cubes" style="color: #37bcf7;"></i>
+                        <div class="label">Portainer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> Stack Technique</h2>
+            <div class="tech-grid fade-in">
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-fingerprint"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-primary);">Authentik</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Identity Provider</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fab fa-docker"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-primary);">Docker</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Conteneurisation</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-primary);">OpenLDAP</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Annuaire Central</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-cloud"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-primary);">Nextcloud</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Stockage Collaboratif</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-comments"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-primary);">Mattermost</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Messagerie d'équipe</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><i class="fas fa-network-wired"></i></div>
+                    <div>
+                        <h4 style="color: var(--text-primary);">Reverse Proxy</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Traefik / Nginx</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Details -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-star"></i> Fonctionnalités Clés</h2>
+            <div class="features-grid fade-in">
+                <div class="feature-box">
+                    <h3><i class="fas fa-key"></i> SSO (Single Sign-On)</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Authentification unique pour tous les services</li>
+                        <li><i class="fas fa-check-circle"></i> Portail utilisateur unifié</li>
+                        <li><i class="fas fa-check-circle"></i> Gestion de session centralisée</li>
+                    </ul>
+                </div>
+                <div class="feature-box">
+                    <h3><i class="fas fa-user-shield"></i> Sécurité Avancée</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Double authentification (2FA/MFA)</li>
+                        <li><i class="fas fa-check-circle"></i> Politiques de mots de passe strictes</li>
+                        <li><i class="fas fa-check-circle"></i> Audit des connexions et logs</li>
+                    </ul>
+                </div>
+                <div class="feature-box">
+                    <h3><i class="fas fa-project-diagram"></i> Intégration LDAP</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Synchronisation des utilisateurs</li>
+                        <li><i class="fas fa-check-circle"></i> Gestion des groupes et permissions</li>
+                        <li><i class="fas fa-check-circle"></i> Structure organisationnelle hiérarchique</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Mon Portfolio. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="../index.html#projects">Projets</a>
+                <a href="../index.html#about">À propos</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:contact@email.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
