@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Linux - Projet Système & Réseau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/project5.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="nav-logo">Portfolio</a>
+            <div class="nav-links">
+                <a href="../index.html#about">À propos</a>
+                <a href="../index.html#education">Formation</a>
+                <a href="../index.html#skills">Compétences</a>
+                <a href="../index.html#projects">Projets</a>
+                <a href="../apprentissagesCritiques.html">Apprentissages</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="matrix-bg"></div>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Keylogger Linux">Keylogger Linux</h1>
+            <p class="hero-subtitle">Système distribué de capture et transmission de frappes clavier</p>
+            <div class="tech-badges">
+                <span class="badge">Langage C</span>
+                <span class="badge">Linux API</span>
+                <span class="badge">Sockets TCP/IP</span>
+                <span class="badge">Bash Scripting</span>
+                <span class="badge">Système</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../index.html#projects" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); text-decoration: none; margin-top: 2rem; font-weight: 500;">
+            <i class="fas fa-arrow-left"></i> Retour aux projets
+        </a>
+
+        <!-- Project Overview -->
+        <section class="section">
+            <h2 class="section-title">Description du projet</h2>
+            <div class="overview-grid">
+                <div class="overview-content fade-in">
+                    <p>Ce projet implémente un système complet de <span class="highlight">capture et transmission de frappes clavier</span> (keylogger) en environnement Linux. Il s'agit d'un système distribué composé de trois modules indépendants qui communiquent via le réseau TCP/IP.</p>
+
+                    <p style="margin-top: 1.5rem;"><span class="highlight">Contexte :</span> Projet réalisé dans le cadre du BUT 3, ce système permet de comprendre les mécanismes de bas niveau des systèmes Linux, notamment l'accès aux périphériques d'entrée et la programmation réseau.</p>
+                    
+                    <div class="warning-box">
+                        <div class="warning-title"><i class="fas fa-exclamation-triangle"></i> Avertissement</div>
+                        L'utilisation d'un keylogger sans le consentement explicite de l'utilisateur est ILLÉGALE dans la plupart des pays. Ce projet est réalisé dans un cadre éducatif uniquement pour comprendre les mécanismes de sécurité et de défense.
+                    </div>
+                </div>
+                <div class="overview-visual fade-in">
+                    <div class="project-icon"><i class="fas fa-keyboard"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="section">
+            <h2 class="section-title">Architecture du système</h2>
+            <div class="fade-in">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-button red"></span>
+                            <span class="terminal-button yellow"></span>
+                            <span class="terminal-button green"></span>
+                        </div>
+                        <div class="terminal-title">architecture.txt</div>
+                    </div>
+                    <div class="ascii-art">
+ ┌─────────────────────────────────────────────────────────────────────┐ 
+ │                        MACHINE CIBLE (Linux)                        │ 
+ │  ┌─────────────────┐                      ┌─────────────────┐       │ 
+ │  │   KEYLOGGER     │  ─────écriture────▶  │   Fichier Log   │       │ 
+ │  │   (key.c)       │                      │   (.conf)       │       │ 
+ │  └─────────────────┘                      └────────┬────────┘       │ 
+ │         ▲                                          │                │ 
+ │         │ Lecture périphérique                     │ Lecture        │ 
+ │  ┌──────┴───────┐                         ┌────────▼────────┐       │ 
+ │  │ /dev/input/  │                         │     CLIENT      │       │ 
+ │  │   event3     │                         │   (client.c)    │       │ 
+ │  └──────────────┘                         └────────┬────────┘       │ 
+ └─────────────────────────────────────────────────────┼───────────────┘ 
+                                                       │ TCP Port 5001 
+                                                       ▼ 
+ ┌─────────────────────────────────────────────────────────────────────┐ 
+ │                      MACHINE SERVEUR                                │ 
+ │  ┌─────────────────┐                      ┌─────────────────┐       │ 
+ │  │    SERVEUR      │  ─────écriture────▶  │   Dossier logs/ │       │ 
+ │  │   (serv.c)      │                      │   (horodatés)   │       │ 
+ │  └─────────────────┘                      └─────────────────┘       │ 
+ └─────────────────────────────────────────────────────────────────────┘ 
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="section">
+            <h2 class="section-title">Technologies utilisées</h2>
+            <div class="tools-grid">
+                <div class="tool-card fade-in">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="fab fa-cuttlefish"></i></div>
+                    Langage C<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">Bas niveau & Périphériques</span>
+                </div>
+                <div class="tool-card fade-in">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="fab fa-linux"></i></div>
+                    API Linux Input<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">Capture /dev/input/</span>
+                </div>
+                <div class="tool-card fade-in">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="fas fa-network-wired"></i></div>
+                    Sockets TCP/IP<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">Communication Client-Serveur</span>
+                </div>
+                <div class="tool-card fade-in">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="fas fa-terminal"></i></div>
+                    Bash Scripting<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">Automatisation</span>
+                </div>
+                <div class="tool-card fade-in">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="fas fa-clock"></i></div>
+                    Crontab<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">Persistance au démarrage</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components -->
+        <section class="section">
+            <h2 class="section-title">Composants du système</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-key"></i></div>
+                    <h3>1. Keylogger (key.c)</h3>
+                    <p>Le cœur du système qui intercepte toutes les frappes clavier au niveau du système d'exploitation Linux.</p>
+                    <ul style="margin-top: 1rem; list-style-position: inside; color: var(--text-secondary);">
+                        <li>Lecture directe de <code>/dev/input/event3</code></li>
+                        <li>Gestion clavier AZERTY (3 mappings)</li>
+                        <li>Horodatage intelligent</li>
+                        <li>Gestion des modificateurs en temps réel</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-upload"></i></div>
+                    <h3>2. Client (client.c)</h3>
+                    <p>Responsable de l'envoi périodique du fichier de log vers le serveur distant via une connexion TCP.</p>
+                    <ul style="margin-top: 1rem; list-style-position: inside; color: var(--text-secondary);">
+                        <li>Transmission par blocs de 1024 octets</li>
+                        <li>Envoi toutes les 60 secondes</li>
+                        <li>Gestion des erreurs de connexion</li>
+                    </ul>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-server"></i></div>
+                    <h3>3. Serveur (serv.c)</h3>
+                    <p>Écoute les connexions entrantes et archive les données reçues.</p>
+                    <ul style="margin-top: 1rem; list-style-position: inside; color: var(--text-secondary);">
+                        <li>Écoute sur le port TCP 5001</li>
+                        <li>Archivage dans fichiers horodatés</li>
+                        <li>Stockage sécurisé dans dossier logs/</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges -->
+        <section class="section">
+            <h2 class="section-title">Défis techniques relevés</h2>
+            <div class="challenges-list fade-in">
+                <div class="challenge-item">
+                    <div class="challenge-title"><i class="fas fa-microchip"></i> Accès bas niveau au clavier Linux</div>
+                    <p><strong>Défi :</strong> Accéder aux périphériques d'entrée nécessite des privilèges root et une compréhension de l'API Input.</p>
+                    <div class="challenge-solution">
+                        <strong>Solution :</strong> Utilisation de <code>/dev/input/eventX</code> avec la structure <code>input_event</code> de <code>&lt;linux/input.h&gt;</code>.
+                    </div>
+                </div>
+
+                <div class="challenge-item">
+                    <div class="challenge-title"><i class="fas fa-language"></i> Mapping complet du clavier AZERTY</div>
+                    <p><strong>Défi :</strong> Le kernel Linux renvoie des codes de touches basés sur le layout QWERTY américain (scancodes).</p>
+                    <div class="challenge-solution">
+                        <strong>Solution :</strong> Création de 3 tables de mapping manuelles (156+ entrées) pour gérer les touches normales, Shift et AltGr pour obtenir des caractères français corrects.
+                    </div>
+                </div>
+
+                <div class="challenge-item">
+                    <div class="challenge-title"><i class="fas fa-sync-alt"></i> Gestion des modificateurs en temps réel</div>
+                    <p><strong>Défi :</strong> Tracker l'état des touches Shift et AltGr (pressé/relâché) pour interpréter correctement les caractères.</p>
+                    <div class="challenge-solution">
+                        <strong>Solution :</strong> Implémentation d'une machine à états simple avec des variables booléennes mises à jour à chaque événement clavier (PRESS/RELEASE/REPEAT).
+                    </div>
+                </div>
+
+                <div class="challenge-item">
+                    <div class="challenge-title"><i class="fas fa-wifi"></i> Communication réseau fiable</div>
+                    <p><strong>Défi :</strong> Transmettre un fichier de taille variable de manière fiable via TCP sans perte de données.</p>
+                    <div class="challenge-solution">
+                        <strong>Solution :</strong> Lecture et écriture par blocs de 1024 octets (buffer) avec boucles de gestion d'erreurs et reconnexion automatique en cas de coupure.
+                    </div>
+                </div>
+
+                <div class="challenge-item">
+                    <div class="challenge-title"><i class="fas fa-ghost"></i> Persistance et discrétion</div>
+                    <p><strong>Défi :</strong> Le système doit survivre aux redémarrages et être difficile à détecter pour l'utilisateur lambda.</p>
+                    <div class="challenge-solution">
+                        <strong>Solution :</strong> Utilisation de Crontab (<code>@reboot</code>), nom d'exécutable obfusqué, et emplacement discret dans <code>/etc/apache2/conf-available/</code>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Ethics Grid -->
+        <section class="section">
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <h3><i class="fas fa-graduation-cap"></i> Compétences acquises</h3>
+                    <ul style="list-style: none; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Programmation système Linux (API Input)</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Programmation réseau (Sockets TCP/IP)</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Automatisation (Bash, Crontab)</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Sécurité informatique & Intrusions</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Gestion de projets technique complexe</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <h3><i class="fas fa-balance-scale"></i> Considérations éthiques</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; color: var(--text-secondary);">
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <th style="text-align: left; padding: 0.5rem 0; color: var(--text-primary);">Aspect</th>
+                            <th style="text-align: right; padding: 0.5rem 0; color: var(--text-primary);">Risque potentiel</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.5rem 0;">Privilèges root</td>
+                            <td style="text-align: right; color: #fca5a5;">Compromission système</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.5rem 0;">Communication TCP</td>
+                            <td style="text-align: right; color: #fca5a5;">Interception réseau</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 0.5rem 0;">Stockage local</td>
+                            <td style="text-align: right; color: #fca5a5;">Lecture par tiers</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.5rem 0;">Persistance</td>
+                            <td style="text-align: right; color: #fca5a5;">Détection par audit</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Lilian MARTIN - Étudiant en 3ème année BUT Informatique</p>
+            <div class="footer-links">
+                <a href="../index.html#about">À propos</a>
+                <a href="../index.html#education">Formation</a>
+                <a href="../index.html#skills">Compétences</a>
+                <a href="../index.html#projects">Projets</a>
+                <a href="../apprentissagesCritiques.html">Apprentissages</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/LilianFh" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/lilian-martin-7081302ab" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://gitlabinfo.iutmontp.univ-montp2.fr/martinl" target="_blank" rel="noopener noreferrer" title="GitLab">
+                    <i class="fab fa-gitlab"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
